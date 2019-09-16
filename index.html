@@ -4,23 +4,36 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="index.js"></script>
     <title>筆圧でGO</title>
     <style>
-        #canvas{
+        body{
+            padding: 0;
+            margin: 0;
+        }
+        .container {
+            display: flex;
+        }
+        #canvas-box{
             background-color: bisque;
             height:80%;
-            width:100%;
+            width:75%;
         }
-        #data{
+        #status-box{
             background-color: lightcyan;
-            width:100%;
+            width:25%;
         }
     </style>
 </head>
 <body>
-    <canvas id="canvas"></canvas>
-    <div id="data"></div>
+    <div class="container">
+        <canvas id="canvas-box"></canvas>
+        <div id="status-box">
+            <div>筆圧:<span id="pen-force">0</span></div>
+            <div>筆座標:x=<span id="position-x"></span>,y=<span id="position-y"></span></div>
+        </div>
+    </div>
 </body>
 
 </html>
