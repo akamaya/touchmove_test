@@ -4,7 +4,7 @@ $(function() {
     $(window).on('touchmove.noScroll', function(e) {
         e.preventDefault();
     });
-    
+
     const $canvas = $('#canvas-box');
     console.log($canvas);
 
@@ -85,18 +85,18 @@ $(function() {
 
     // touchイベント PCでは存在しないっぽい。タッチパッドでも不可
     let existsTouchEvent = false;
-    $canvas.on('touchstart', function(e) {
+    $canvas.on('touchstart.draw', function(e) {
         existsTouchEvent = true;
         pen.touchStart(e);
         writeTouchEvent(pen);
     });
 
-    $canvas.on('touchmove', function(e) {
+    $canvas.on('touchmove.draw', function(e) {
         pen.touchMove(e);
         writeTouchEvent(pen);
     });
 
-    $canvas.on('touchend', function(e) {
+    $canvas.on('touchend.draw', function(e) {
         pen.touchEnd(e);
         writeTouchEvent(pen);
     });
