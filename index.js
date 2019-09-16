@@ -1,10 +1,6 @@
 
 $(function() {
-    // スクロールを無効にする
-    //$(window).on('touchmove.noScroll', function(e) {
-    //    console.log("aa");
-    //    e.preventDefault();
-    //});
+    
     try {
     const $canvas = $('#canvas-box');
     console.log($canvas);
@@ -30,7 +26,6 @@ $(function() {
         setPositions(e){
             
             const rowForce = e.touches ? e.touches[0].force : 1.0;
-            writeErrors(e.pageX || e.originalEvent.touches[0].pageX);
             const nowPos = {x:e.pageX || e.originalEvent.touches[0].pageX, y:e.pageY || e.originalEvent.touches[0].pageY};
             const prePos = this.force ? this.position : nowPos;
             const force = Math.ceil(rowForce * 99);
@@ -132,8 +127,8 @@ $(function() {
 
     function writeTouchEvent(pen){
         $('#pen-force').text(pen.force);
-        $('#position-x').text(pen.x);
-        $('#position-y').text(pen.y);
+        $('#position-x').text(Math.ceil(pen.x));
+        $('#position-y').text(Math.ceil(pen.y));
     }
 
     function drawCanvas(size, x, y){
