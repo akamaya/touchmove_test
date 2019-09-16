@@ -28,8 +28,9 @@ $(function() {
             }
         }
         setPositions(e){
+            
             const rowForce = e.touches ? e.touches[0].force : 1.0;
-            const nowPos = {x:e.pageX, y:e.pageY};
+            const nowPos = {x:e.pageX || e.originalEvent.touches[0].pageX, y:e.pageY || e.originalEvent.touches[0].pageY};
             const prePos = this.force ? this.position : nowPos;
             const force = Math.ceil(rowForce * 99);
 
