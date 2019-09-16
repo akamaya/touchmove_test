@@ -1,9 +1,10 @@
 
 $(function() {
     // スクロールを無効にする
-    $(window).on('touchmove.noScroll', function(e) {
-        e.preventDefault();
-    });
+    //$(window).on('touchmove.noScroll', function(e) {
+    //    console.log("aa");
+    //    e.preventDefault();
+    //});
 
     const $canvas = $('#canvas-box');
     console.log($canvas);
@@ -94,6 +95,7 @@ $(function() {
     $canvas.on('touchmove.draw', function(e) {
         pen.touchMove(e);
         writeTouchEvent(pen);
+        e.preventDefault();
     });
 
     $canvas.on('touchend.draw', function(e) {
@@ -138,8 +140,6 @@ $(function() {
         const canvas = $canvas.get(0);
         const scaleX = canvas.width / $canvas.width() ;
         const scaleY = canvas.height / $canvas.height();
-        
-        console.log(size, x, y);
         
         const ctx = canvas.getContext('2d');
          
