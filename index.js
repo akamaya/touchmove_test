@@ -30,6 +30,7 @@ $(function() {
         setPositions(e){
             
             const rowForce = e.touches ? e.touches[0].force : 1.0;
+            writeErrors(e.pageX || e.originalEvent.touches[0].pageX);
             const nowPos = {x:e.pageX || e.originalEvent.touches[0].pageX, y:e.pageY || e.originalEvent.touches[0].pageY};
             const prePos = this.force ? this.position : nowPos;
             const force = Math.ceil(rowForce * 99);
@@ -152,9 +153,11 @@ $(function() {
 
 }
 catch(e){
-    const $errors = $('#errors');
-    $errors.text(e);
+    writeErrors(e);
 }
-    
+    function writeErrors(message){
+        const $errors = $('#errors');
+        $errors.text(message);
+    }
 });
 
