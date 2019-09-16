@@ -5,7 +5,7 @@ $(function() {
     //    console.log("aa");
     //    e.preventDefault();
     //});
-
+    try {
     const $canvas = $('#canvas-box');
     console.log($canvas);
 
@@ -148,6 +148,12 @@ $(function() {
         ctx.arc(x * scaleX, y * scaleY, size / 2, 0, Math.PI*2, false);
         ctx.fill();
     }
+
+}
+catch(e){
+    const $errors = $('#errors');
+    $errors.text(e);
+}
     
 });
 
