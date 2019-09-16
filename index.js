@@ -1,5 +1,10 @@
 
 $(function() {
+    // スクロールを無効にする
+    $(window).on('touchmove.noScroll', function(e) {
+        e.preventDefault();
+    });
+    
     const $canvas = $('#canvas-box');
     console.log($canvas);
 
